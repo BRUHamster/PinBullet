@@ -5,16 +5,17 @@ using UnityEngine;
 public class PlayerMovementScript : MonoBehaviour
 {
     private float _speed;
-    private Rigidbody2D _rb;
-    private Vector2 _velocity;
+    private Rigidbody _rb;
+    private Vector3 _velocity;
+    public int health = 0;
     
     // Basic Player Movemnt script
     void OnEnable()
     {
         transform.position = new Vector3(4, 0, -1);
         _speed = 0.1f;
-        _rb = GetComponent<Rigidbody2D>();
-        _velocity = new Vector2(0, 0);
+        _rb = GetComponent<Rigidbody>();
+        _velocity = new Vector3(0, 0, 0);
     }
 
     void Update()
@@ -30,6 +31,6 @@ public class PlayerMovementScript : MonoBehaviour
     {
         _rb.MovePosition(_rb.position + _velocity);
     }
-    
+
     
 }

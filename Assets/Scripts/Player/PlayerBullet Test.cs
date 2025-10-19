@@ -2,17 +2,29 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerBulletTest : MonoBehaviour
 {
+
+    private int health;
     void Start()
     {
-        Debug.Log("Start");
+        health = transform.GetComponent<PlayerMovementScript>().health;
     }
-
-    void OnTriggerEnter2D(Collider2D other)
+    
+    private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Triggered");
-        transform.position = new Vector3(0,0,-1);
+        if (other.CompareTag("Bullet"))
+        {
+            if (health > 0)
+                health--;
+            else
+            {
+                SceneManager.LoadScene("Test Menu");
+            }
+            
+        }
     }
 }

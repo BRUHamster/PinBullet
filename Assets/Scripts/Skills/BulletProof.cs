@@ -10,6 +10,6 @@ public class BulletProof : MonoBehaviour
 
     private void Start()
     {
-        transform.GetComponent<PlayerMovementScript>().health = _points;
+        //transform.GetComponent<PlayerMovementScript>().health = _points;
     }
 }

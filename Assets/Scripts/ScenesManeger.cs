@@ -7,7 +7,7 @@ public class ScenesManeger : MonoBehaviour
 {
     public void StartTest()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("EmptyBox");
     }
 
     

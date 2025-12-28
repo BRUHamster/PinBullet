@@ -24,7 +24,6 @@ public class Mine : MonoBehaviour
         {
             Destroy(transform.gameObject);
         }
-            
         
         if (_time >= 3f)
         {
@@ -34,14 +33,5 @@ public class Mine : MonoBehaviour
             transform.GetComponent<BoxCollider>().enabled = true;
 
         }
-        
-        
-        
-            
-           
-
-
-
-
     }
 }

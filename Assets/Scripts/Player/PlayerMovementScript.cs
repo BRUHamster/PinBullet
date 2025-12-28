@@ -1,36 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
+using UnityEngine.Serialization;
 
 public class PlayerMovementScript : MonoBehaviour
 {
-    private float _speed;
-    private Rigidbody _rb;
-    private Vector3 _velocity;
-    public int health = 0;
     
-    // Basic Player Movemnt script
+
+    private Rigidbody2D _rb;
+    public float moveSpeed = 5.0f;
+    
+
     void OnEnable()
     {
-        transform.position = new Vector3(4, 0, -1);
-        _speed = 0.1f;
-        _rb = GetComponent<Rigidbody>();
-        _velocity = new Vector3(0, 0, 0);
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        _velocity.x = Input.GetAxis("Horizontal") * _speed;
-        _velocity.y = Input.GetAxis("Vertical") * _speed;
         
-        
-    }
-    
-    void FixedUpdate()
-    
-    {
-        _rb.MovePosition(_rb.position + _velocity);
+        _rb.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * moveSpeed; 
     }
 
-    
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        //GetComponent<SpriteRenderer>().color = collision.gameObject.GetComponent<SpriteRenderer>().color;
+        
+        
+        
+        _rb.AddForce (Vector2.left * 10f, ForceMode2D.Impulse);
+    }
 }

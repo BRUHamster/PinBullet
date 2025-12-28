@@ -19,8 +19,8 @@ public class BulletTest : MonoBehaviour
             _time = 0;
             //Instantiate(_targetBullet, new Vector3(0,2,-1), transform.rotation);
             var rotation = transform.rotation;
-            Instantiate(_frontBull, new Vector3(-6, 3, -1), rotation);
-            Instantiate(_frontBull, new Vector3(6, 3, -1), rotation);
+            Instantiate(_frontBull, new Vector3(-7, 2, 100), rotation);
+            
         }
     }
 }

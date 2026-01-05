@@ -17,7 +17,7 @@ public class CameraMovement : MonoBehaviour
 
     void Shake()
     {
-        Debug.Log("Shaking");
+        //Debug.Log("Shaking");
         StartCoroutine(Shaking());
     }
     IEnumerator Shaking()

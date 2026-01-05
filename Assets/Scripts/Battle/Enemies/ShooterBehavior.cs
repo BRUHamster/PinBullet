@@ -4,9 +4,10 @@ using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ShooterBehavior : MonoBehaviour
+public class ShooterBehavior : EnemyBehaviour
 {
-
+    
+    
     private float _time;
     private Transform _transform1;
 
@@ -32,6 +33,8 @@ public class ShooterBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isFrozen) return; 
+        
         _time += Time.deltaTime;
         //moving
         Vector3 position = _transform1.position;
@@ -43,7 +46,7 @@ public class ShooterBehavior : MonoBehaviour
             transform.DOMove(_point1, 3f);
         
         //shooting
-        if (_time >= 1f)
+        if (_time >= 1f && !isFrozen)
         {
             Instantiate(_bullet, _transform1.position, _transform1.rotation);
             _time = 0f;

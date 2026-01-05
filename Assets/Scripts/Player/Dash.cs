@@ -7,6 +7,8 @@ public class Dash  : MonoBehaviour
     private PlayerMovementScript _player;
     private float _time;
     private BoxCollider2D _collider;
+
+    private bool _isDashing = false;
     
     
     void OnEnable()
@@ -24,7 +26,8 @@ public class Dash  : MonoBehaviour
 
     IEnumerator Dashing()
     {
-        
+        _isDashing = true;
+        transform.gameObject.tag = "Attack";
         _player.moveSpeed *= 1.5f;
         _collider.enabled = false;
         
@@ -32,5 +35,10 @@ public class Dash  : MonoBehaviour
         
         _collider.enabled = true;
         _player.moveSpeed /= 1.5f;
+        transform.gameObject.tag = "Player";
+        _isDashing = false; 
     }
+
+    public bool GetDash() => _isDashing;
+    
 }

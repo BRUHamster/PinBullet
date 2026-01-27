@@ -9,7 +9,7 @@ public class BulletTest : MonoBehaviour
     [SerializeField] private GameObject _frontBull;
     
 
-    // Update is called once per frame
+    // Скрипт нужен для спантанных тестов пулек на поле
     void Update()
     {
         _time += Time.deltaTime;

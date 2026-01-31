@@ -28,7 +28,7 @@ public class DamageTaker : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         
-        if (other.CompareTag("Bullet"))
+        if (other.CompareTag("Bullet") && !transform.GetComponent<Dash>().IsDashing())
         {
             StartCoroutine(DamageAnimation());
             

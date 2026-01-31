@@ -7,7 +7,9 @@ public class EnemyBehaviour : MonoBehaviour
 {
     //basic values
 
-    public bool isFrozen = false; 
+    public bool isFrozen = false;
+    public float freezeDuration = 3f;
+    
     protected Transform _transform1;
     [SerializeField] protected Vector2 _point1;
     [SerializeField] protected Vector2 _point2;
@@ -27,24 +29,20 @@ public class EnemyBehaviour : MonoBehaviour
             transform.DOMove(_point1, 3f);
     }
 
-    void OnTriggerEnter2D(Collider2D collision) //every enemie is sunning
+    void OnTriggerEnter2D(Collider2D collision) //every enemy is stunning
     {
         
-        if (collision.gameObject.tag == "Player")
-            StartCoroutine(Stun(duration: 5f));
+        if (collision.gameObject.GetComponent<Dash>() != null)
+            StartCoroutine(Stun(duration: freezeDuration));
+        else
+            Debug.Log(collision.name);
     }
     protected IEnumerator Stun(float duration)
     {
         isFrozen = true;
-        transform.GetComponent<SpriteRenderer>().color = Color.blue;
-        for (int i = 1; i <= duration; i++)
-        {
-            transform.GetComponent<SpriteRenderer>().color = Color.gray;
-            yield return new WaitForSeconds(1f);
-            transform.GetComponent<SpriteRenderer>().color = Color.blue;
-        }
         
-        
+        transform.GetComponent<SpriteRenderer>().color = Color.gray;
+        yield return new WaitForSeconds(duration);
         isFrozen = false;
         transform.GetComponent<SpriteRenderer>().color = Color.white;
     }

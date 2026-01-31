@@ -9,6 +9,7 @@ public class PlayerMovementScript : MonoBehaviour
     
 
     private Rigidbody2D _rb;
+    
     public float moveSpeed = 5.0f;
     
 

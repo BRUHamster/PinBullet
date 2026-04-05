@@ -13,14 +13,15 @@ public class Mine : MonoBehaviour
     private void OnEnable()
     {
         _time = 0;
-        transform.GetComponent<BoxCollider>().enabled = false;
+        transform.GetComponent<BoxCollider2D>().enabled = false;
+        
     }
 
     private void Update()
     {
         _time += Time.deltaTime;
 
-        if (_time >= 0.2f && transform.CompareTag("Bullet"))
+        if (_time >= 0.5f && transform.CompareTag("Bullet"))
         {
             Destroy(transform.gameObject);
         }
@@ -30,8 +31,13 @@ public class Mine : MonoBehaviour
             _time = 0;
             explosion.SetActive(true);
             transform.tag = "Bullet";
-            transform.GetComponent<BoxCollider>().enabled = true;
+            transform.GetComponent<BoxCollider2D>().enabled = true;
+            GameObject.Find("Main Camera").GetComponent<CameraMovement>().Shake();
 
         }
+        
     }
+
+    
+    
 }

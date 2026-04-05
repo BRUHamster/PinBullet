@@ -503,17 +503,6 @@ Transform:
   - {fileID: 1435434694}
   m_Father: {fileID: 413467544}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1007146914 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3141953011140876063, guid: 15a5d06dd385d254fb437553fbf6e24e, type: 3}
-  m_PrefabInstance: {fileID: 1551769049}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1037836794
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,7 +754,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f72cb25bd580d044d9746ef70363fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthText: {fileID: 1007146914}
+  scaleF: 1.5
+  time: 0.2
 --- !u!114 &1043278322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -778,7 +768,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311c57c4b750d86418ff14a1a8f45285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1043278323}
 --- !u!114 &1043278323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -791,7 +780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fdc3cc02be088c4789f809f98ef3565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0
+  moveSpeed: 5
   health: 0
 --- !u!1 &1175444745
 GameObject:

@@ -12,13 +12,14 @@ public class DamageTaker : MonoBehaviour
     private int health;
     
     public event Action DamageTaken;
+    public event Action Death;
     
     private Vector3 _scale;
     
     [SerializeField] public float scaleF = 1.5f;
     [SerializeField] public float time = 0.2f;
 
-    //[SerializeField] TMP_Text healthText;
+    
 
     void OnEnable()
     {
@@ -32,8 +33,10 @@ public class DamageTaker : MonoBehaviour
         {
             StartCoroutine(DamageAnimation());
             
-            
             DamageTaken?.Invoke();
+            health--;
+            if (health <= 0)
+                Death?.Invoke();
         }
     }
 

@@ -11,31 +11,27 @@ public class EnemyBehaviour : MonoBehaviour
     public float freezeDuration = 3f;
     
     protected Transform _transform1;
-    [SerializeField] protected Vector2 _point1;
-    [SerializeField] protected Vector2 _point2;
     
-    
-    
+   
 
-    void Moving()
+    void OnEnable()
     {
-        Vector2 position = _transform1.position;
-        if (_point1 == _point2 == null)
-            return;
-        
-        if (position == _point1)
-            transform.DOMove(_point2, 3f); //moving mechanic i guess
-        if (position == _point2)
-            transform.DOMove(_point1, 3f);
+        CommonAct();
+        UnCommanAct();
     }
+
+    void CommonAct()
+    {
+    }
+    
+    
 
     void OnTriggerEnter2D(Collider2D collision) //every enemy is stunning
     {
         
-        if (collision.gameObject.GetComponent<Dash>() != null)
+        if (collision.gameObject.GetComponent<Dash>() != null && collision.gameObject.GetComponent<Dash>().IsDashing())
             StartCoroutine(Stun(duration: freezeDuration));
-        else
-            Debug.Log(collision.name);
+            
     }
     protected IEnumerator Stun(float duration)
     {
@@ -46,8 +42,10 @@ public class EnemyBehaviour : MonoBehaviour
         isFrozen = false;
         transform.GetComponent<SpriteRenderer>().color = Color.white;
     }
-    
-    
-    
-    
+
+
+    protected  void UnCommanAct() //void for children
+    {
+        Debug.Log("Enemy");
+    }
 }

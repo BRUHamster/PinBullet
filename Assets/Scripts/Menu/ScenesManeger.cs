@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class ScenesManeger : MonoBehaviour
 {
+    void OnEnable() => Time.timeScale = 1f;
+    
     public void StartTest()
     {
-        SceneManager.LoadScene("EmptyBox");
+        SceneManager.LoadScene("Test Level");
     }
 
     

@@ -11,11 +11,15 @@ public class PlayerMovementScript : MonoBehaviour
     private Rigidbody2D _rb;
     
     public float moveSpeed = 5.0f;
+    public float health = 1f;
     
+
 
     void OnEnable()
     {
         _rb = GetComponent<Rigidbody2D>();
+        gameObject.GetComponent<DamageTaker>().DamageTaken += Damage;
+
     }
 
     void Update()
@@ -33,4 +37,6 @@ public class PlayerMovementScript : MonoBehaviour
         
         _rb.AddForce (Vector2.left * 10f, ForceMode2D.Impulse);
     }
+
+    void Damage() => health--;
 }

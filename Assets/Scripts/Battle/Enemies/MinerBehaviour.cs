@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-public class MinerBehaviour : MonoBehaviour
+public class MinerBehaviour : EnemyBehaviour   
 {
     private float _time;
     private Vector3 position;
@@ -12,15 +12,17 @@ public class MinerBehaviour : MonoBehaviour
     
     
     // Start is called before the first frame update
-    private void OnEnable()
+    void UnCommanAct() //void for children
     {
         _time = 0;
+        Debug.Log("NEW MINER");
     }
 
     private void Update()
     {
-        _time += Time.deltaTime;
+        if (isFrozen) return;
         
+        _time += Time.deltaTime;
         
         
         //Mining
@@ -29,7 +31,7 @@ public class MinerBehaviour : MonoBehaviour
             _time = 0;
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             var pos = player.transform.position;
-            position = new Vector3(pos.x, pos.y, pos.z / 2);
+            position = new Vector3(pos.x, pos.y, 1);
             Instantiate(_mine, position, transform.rotation);
         }
     }

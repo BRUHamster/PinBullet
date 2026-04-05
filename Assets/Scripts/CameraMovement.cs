@@ -9,13 +9,12 @@ public class CameraMovement : MonoBehaviour
 
     public void OnEnable()
     {
-        GameObject.FindWithTag("Player").GetComponent<DamageTaker>().DamageTaken += Shake;
-        Debug.Log(GameObject.FindWithTag("Player").name);
+        
     }
     
     
 
-    void Shake()
+    public void Shake()
     {
         //Debug.Log("Shaking");
         StartCoroutine(Shaking());

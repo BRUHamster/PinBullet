@@ -19,7 +19,7 @@ public class MenuButton : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            PauseGame();
+            
             OpenMenu();
         }
     }

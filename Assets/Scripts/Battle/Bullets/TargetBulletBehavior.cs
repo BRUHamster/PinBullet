@@ -19,9 +19,4 @@ public class TargetBulletBehavior : Bullet
         _rb = GetComponent<Rigidbody2D>();
         _rb.velocity = _direction * _speed;
     }
-    
-    
-    
-
-    
 }

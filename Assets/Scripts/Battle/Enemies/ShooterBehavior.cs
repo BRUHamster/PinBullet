@@ -10,21 +10,18 @@ public class ShooterBehavior : EnemyBehaviour
     
     private float _time;
     
+    [SerializeField] public Vector2 directionofFrontBullet;
 
-    [SerializeField] private GameObject _bullet;
+    [SerializeField] private GameObject bullet;
+
+
+    private float _scale1;
+    private float _scale2;
     
     void OnEnable()
     {
-        _transform1 = transform;
-        if (_point1 == null)
-            _point1 = transform.position;
-
-        if (_point2 == null)
-            _point2 = transform.position;
-        
-        
-        Debug.Log($"{_point1} + {_point2} ");
-        transform.DOMove(_point1, 1.5f);
+        _scale1 = transform.localScale.x;
+        _scale2 = _scale1 * 0.8f;
     }
 
     
@@ -37,10 +34,29 @@ public class ShooterBehavior : EnemyBehaviour
         //shooting
         if (_time >= 1f && !isFrozen)
         {
-            Instantiate(_bullet, _transform1.position, _transform1.rotation);
+
+            StartCoroutine(ShootAnimation());
             _time = 0f;
-            
+
         }
+    }
+
+    
+
+    IEnumerator ShootAnimation()
+    {
+        transform.DOScale(_scale2, 0.7f);
+        yield return new WaitForSeconds(0.7f);
+        transform.DOScale(_scale1, 0.3f);
+
+        Instantiate(bullet, transform.position, transform.rotation); //Bullet spawned
+
+            if (bullet.name == "FrontBullet") 
+                bullet.GetComponent<FrontBulletBehaviour>().direction = directionofFrontBullet;
+
+            bullet.GetComponent<Bullet>().SetOwner(1);
+
+        
     }
     
 

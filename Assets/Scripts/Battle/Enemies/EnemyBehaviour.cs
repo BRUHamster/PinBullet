@@ -33,7 +33,7 @@ public class EnemyBehaviour : MonoBehaviour
             StartCoroutine(Stun(duration: freezeDuration));
             
     }
-    protected IEnumerator Stun(float duration)
+    protected IEnumerator Stun(float duration) //stun animation
     {
         isFrozen = true;
         

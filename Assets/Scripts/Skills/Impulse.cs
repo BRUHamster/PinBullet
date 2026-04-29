@@ -27,7 +27,7 @@ public class Impulse : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collided with " + other.name);
+        //Debug.LogError("Collided with " + other.name);
     }
 
 

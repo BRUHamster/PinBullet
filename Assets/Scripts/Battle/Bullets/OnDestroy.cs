@@ -8,7 +8,7 @@ public class OnDestroing : MonoBehaviour
 
     void OnDestroy()
     {
-        Instantiate(_destroyEffect, transform.position, transform.rotation);
+        //Instantiate(_destroyEffect, transform.position, transform.rotation);
     }
     
 }

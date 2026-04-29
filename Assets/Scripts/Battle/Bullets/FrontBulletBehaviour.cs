@@ -18,6 +18,10 @@ public class FrontBulletBehaviour : Bullet
             
         _rb = transform.GetComponent<Rigidbody2D>();
         _rb.velocity = direction * _speed;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+
     }
     
     

@@ -26,16 +26,18 @@ public class MenuButton : MonoBehaviour
 
     void OpenMenu()
     {
-        menu.SetActive(true);
+        Pausemanager();
+        menu.SetActive(!menu.activeSelf);
     }
     
     
 
     private void PauseGame() => Time.timeScale = 0f;
     private void UnpauseGame() => Time.timeScale = 1f;
-    
-        
-    
-    
-    
+    private void Pausemanager() => Time.timeScale = 1 - Time.timeScale;
+
+
+
+
+
 }

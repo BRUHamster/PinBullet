@@ -48,7 +48,7 @@ public class ShooterBehavior : EnemyBehaviour
         transform.DOScale(_scale2, 0.7f);
         yield return new WaitForSeconds(0.7f);
         transform.DOScale(_scale1, 0.3f);
-
+        
         Instantiate(bullet, transform.position, transform.rotation); //Bullet spawned
 
             if (bullet.name == "FrontBullet") 

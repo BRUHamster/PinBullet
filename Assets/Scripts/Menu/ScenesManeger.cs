@@ -9,7 +9,7 @@ public class ScenesManeger : MonoBehaviour
     
     public void StartTest()
     {
-        SceneManager.LoadScene("Test Level");
+        //SceneManager.LoadScene("Test Level");
     }
 
     

@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Instantiate(_destroyEffect, transform.position, transform.rotation);
+            //Instantiate(_destroyEffect, transform.position, transform.rotation);
             Destroy(transform.gameObject);
         }
     }

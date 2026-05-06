@@ -44,7 +44,7 @@ public class EnemieMoving : MonoBehaviour
     {
         if (points.Length == 0) return;
 
-        if (!_isMoving)
+        if (!_isMoving)  
         {
             
             _isMoving = true;

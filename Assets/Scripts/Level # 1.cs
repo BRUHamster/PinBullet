@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class Buttonanimation : MonoBehaviour
+public class Level1 : MonoBehaviour
 {
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +15,4 @@ public class Buttonanimation : MonoBehaviour
     {
         
     }
-
-    
-    
 }

@@ -13,27 +13,26 @@ public class MenuButton : MonoBehaviour
     {
         if (menu == null)
             Debug.Log("Menu is not attached to Button");
+
     }
     
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            
-            OpenMenu();
+            Pausemanager();
+
+            menu.SetActive(!menu.activeSelf);
         }
     }
 
     void OpenMenu()
     {
-        Pausemanager();
-        menu.SetActive(!menu.activeSelf);
+        menu.SetActive(true);
     }
     
     
 
-    private void PauseGame() => Time.timeScale = 0f;
-    private void UnpauseGame() => Time.timeScale = 1f;
     private void Pausemanager() => Time.timeScale = 1 - Time.timeScale;
 
 

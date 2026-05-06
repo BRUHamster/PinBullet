@@ -5,11 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class ScenesManeger : MonoBehaviour
 {
+    [SerializeField] public string TargetScene;
+
     void OnEnable() => Time.timeScale = 1f;
     
-    public void StartTest()
+    public void StartScene()
     {
-        //SceneManager.LoadScene("Test Level");
+        if (TargetScene == "null")
+        {
+            Application.Quit();
+            return;
+        }
+            
+
+        SceneManager.LoadScene(TargetScene);
     }
 
     

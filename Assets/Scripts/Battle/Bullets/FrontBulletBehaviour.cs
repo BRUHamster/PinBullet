@@ -11,6 +11,13 @@ public class FrontBulletBehaviour : Bullet
     
     private void OnEnable()
     {
+        
+
+    }
+
+    public void Init(Vector2 dir)
+    {
+        direction = dir;
         if (direction == Vector2.zero)
         
             Object.Destroy(transform);
@@ -21,10 +28,9 @@ public class FrontBulletBehaviour : Bullet
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle - 90);
-
     }
-    
-    
-    
+
+
+
 
 }

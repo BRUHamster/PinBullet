@@ -49,12 +49,16 @@ public class ShooterBehavior : EnemyBehaviour
         yield return new WaitForSeconds(0.7f);
         transform.DOScale(_scale1, 0.3f);
         
-        Instantiate(bullet, transform.position, transform.rotation); //Bullet spawned
+        GameObject spawnedBullet = Instantiate(bullet, transform.position, transform.rotation); //Bullet spawned
+        
 
-            if (bullet.name == "FrontBullet") 
-                bullet.GetComponent<FrontBulletBehaviour>().direction = directionofFrontBullet;
+            if (spawnedBullet.TryGetComponent(out FrontBulletBehaviour frontBullet))
+            {
+                
+                frontBullet.Init(directionofFrontBullet);
+            }
 
-            bullet.GetComponent<Bullet>().SetOwner(1);
+            spawnedBullet.GetComponent<Bullet>().SetOwner(1);
 
         
     }

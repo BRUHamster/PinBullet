@@ -19,6 +19,7 @@ public class Bullet : MonoBehaviour
         {
             //Instantiate(_destroyEffect, transform.position, transform.rotation);
             Destroy(transform.gameObject);
+            
         }
     }
 

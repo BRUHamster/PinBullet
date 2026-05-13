@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4177057893140690381}
   - component: {fileID: 1438965478398182146}
-  - component: {fileID: 8471429082167003698}
   - component: {fileID: 6484124359005106395}
   - component: {fileID: 1166117165646458830}
+  - component: {fileID: 8471429082167003698}
   m_Layer: 0
   m_Name: Miner_Liner
   m_TagString: Untagged
@@ -90,19 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8471429082167003698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6103007954979438456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d4a0e45be8dbcc4fad438da964d0a79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: []
 --- !u!50 &6484124359005106395
 Rigidbody2D:
   serializedVersion: 4
@@ -145,6 +132,23 @@ MonoBehaviour:
   isFrozen: 0
   freezeDuration: 3
   _mine: {fileID: 2729483632660021273, guid: f24557cdb3bcbfd4b887cbd9ab12bbbf, type: 3}
+  _speed: 3
+  _attackRange: 5
+--- !u!114 &8471429082167003698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6103007954979438456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4a0e45be8dbcc4fad438da964d0a79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: []
+  _isMoving: 0
+  target: {x: 0, y: 0, z: 0}
 --- !u!1001 &1725186432118045223
 PrefabInstance:
   m_ObjectHideFlags: 0
